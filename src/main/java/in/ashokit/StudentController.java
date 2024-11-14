@@ -66,5 +66,11 @@ public class StudentController {
 		return"index";
 	}
 	//method to display saved students data
-	
+	@GetMapping("/viewStudents")
+	public String getStudentsData(Model model) {
+		//logic to fetch and send students data
+		List<StudentEntity>studentsList=repo.findAll();
+		model.addAttribute("students",studentsList);
+		return "data";
+	}
 }
